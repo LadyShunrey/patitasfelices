@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patitas Felices</title>
+    <link rel="stylesheet" href="css/index.css">        
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="images/logo_negro.png">
+</head>
+<body>
+    <div class="header">
+        <div class="logo-header">
+            <a href="index.html"><img src="images/logo_relleno.png" alt="es el logo del sitio, una patita de color roja que adentro tiene un gatito y un perrito"></a> 
+            <p> Patitas Felices </p>
+        </div>
+        <div class="linea">
+
+        </div>
+        <a href="en-adopcion.html"> <button class="botones-header"> EN ADOPCIÓN </button> </a>
+        <a href="tienda.html"> <button class="botones-header"> TIENDA </button></a>
+        <a href="contacto.html"> <button class="botones-header"> CONTACTO </button> </a>
+    </div>
+
+    <div class="adopcion-titulo">
+        <h1>CONTACTO</h1>
+    </div>
+
+    <div class="contenedor-imagen-contacto">
+        <img src="images/contacto.jpg" alt="es un perro Golden sosteniendo unas cartas con la boca">
+    </div>
+
+    <div class="adopcion-titulo">
+        <p>Si querés realizar una donación, tenés alguna consulta, algún perro en adopción o estás interesado/a en transitar o ser voluntario/a, ¡escribinos!</p>
+    </div>
+
+    <div class="adopcion-titulo">  
+        
+        <h4>Por favor complete sus datos:</h4>
+        
+        <form action="" id="js-formulario">
+            <label for="nombre">Nombre y Apellido</label>
+            <input type="text" name="nombre" value="" placeholder="escriba su nombre y apellido" required>
+            <label for="genero"> Genero </label>
+            <div class="form-genero">
+                <input type="radio" name="genero" id="masculino" required> Masculino
+                <input type="radio" name="genero" id="femenino"> Femenino
+                <input type="radio" name="genero" id="otro"> Otro
+            </div>
+            <label for="ciudad">Ciudad</label>
+            <input type="text" name="ciudad" value="" placeholder="ingrese su ciudad" required>
+            <label for="email">E-mail </label>
+            <input type="email" name="email" id="" placeholder="ingrese su email" required>
+            <label for="telefono">Teléfono </label>
+            <input type="text" name="telefono" id="" placeholder="ingrese un teléfono" required>
+            <label for="motivo">Motivo de contacto</label>
+            <select name="motivo" id="" required>
+                <option value="adopciones">Adopciones</option>
+                <option value="consultas">Consultas</option>
+                <option value="donaciones">Donaciones</option>
+                <option value="voluntarios">Voluntariado</option>
+            </select>
+            <label for="comentario">Mensaje</label>
+            <textarea name="comentario" id="" cols="40" rows="10" required></textarea>
+            <div class="contenedor-captcha">
+                <div class="captcha-imagen">
+                    <p id="js-imagen-captcha"></p>
+                </div>
+                <div class="captcha-input">
+                    <p>Por favor ingrese aquí debajo los numéros y/o letras que salen en el recuadro</p>
+                    <input type="text" id="js-input-captcha">
+                    <p id="js-mensaje-captcha"></p>
+                </div>
+            </div>
+            <div>
+                <button class="boton-enviar"> ENVIAR </button>
+            </div>
+        </form>
+    </div>
+    
+    <div class="footer">
+        <div class="menu-footer">
+            <h4>¿Quiénes somos?</h4>
+            <p> Somos dos amigas de Tandil y Mar del Plata </p>
+            <p> Que vieron una solución donde había un gran problema. </p>
+        </div>
+        <div class="menu-footer">
+            <h4>MENÚ</h4>
+            <a href="index.html">Home</a>
+            <a href="en-adopcion.html">Adopciones</a>
+            <a href="tienda.html">Tienda</a>
+            <a href="contacto.html">Contacto</a>
+        </div>
+        <div class="menu-footer">
+            <h4>NUESTRAS REDES</h4>
+            <a href="https://www.facebook.com/Melisa.Burlando/" target="_blank">Facebook</a>
+            <a href="https://www.instagram.com/nana.shunrey/" target="_blank">Instagram</a>
+        </div>
+        <div class="logo-footer">
+            <img src="images/logo_color.png" alt="es el logo del sitio en color rojo">
+            <p>Patitas Felices</p>
+            <p>2022 - todos los derechos reservados</p>
+        </div>
+    </div>
+
+    <script src="js/contacto.js"></script>
+
+</body>
+</html>
