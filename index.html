@@ -12,18 +12,21 @@
     <link rel="shortcut icon" href="images/logo_negro.png">
 </head>
 <body>
-    <div class="header">
+    <header>
+        <img class="menu-hamburguesa" src="images/menu_hamburguesa.png" alt="es un menu hamburguesa del color del sitio">
         <div class="logo-header">
             <a href="index.html"><img src="images/logo_relleno.png" alt="es el logo del sitio, una patita de color roja que adentro tiene un gatito y un perrito"></a> 
-            <p> Patitas Felices </p>
+            <p class="nombre-pagina"> Patitas Felices </p>
         </div>
         <div class="linea">
 
         </div>
-        <a href="en-adopcion.html"> <button class="botones-header"> EN ADOPCIÓN </button> </a>
-        <a href="tienda.html"> <button class="botones-header"> TIENDA </button></a>
-        <a href="contacto.html"> <button class="botones-header"> CONTACTO </button> </a>
-    </div>
+        <div class="menuDesplegado">
+            <a href="en-adopcion.html"> <button class="botones-header"> EN ADOPCIÓN </button> </a>
+            <a href="tienda.html"> <button class="botones-header"> TIENDA </button></a>
+            <a href="contacto.html"> <button class="botones-header"> CONTACTO </button> </a>
+        </div>
+    </header>
 
     <div class="contenedor-central">
         <div class="contenedor-textos">
@@ -58,8 +61,8 @@
 
     </div>
     
-    <div class="footer">
-        <div class="menu-footer">
+    <footer>
+        <div class="menu-footer quienes-somos">
             <h4>¿Quiénes somos?</h4>
             <p> Somos dos amigas de Tandil y Mar del Plata </p>
             <p> Que vieron una solución donde había un gran problema. </p>
@@ -81,6 +84,9 @@
             <p>Patitas Felices</p>
             <p>2022 - todos los derechos reservados</p>
         </div>
-    </div>
+    </footer>
+
+    <script src="js/alternar-menu.js"></script>
+
 </body>
 </html>

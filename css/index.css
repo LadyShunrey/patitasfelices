@@ -3,7 +3,7 @@ body {
     font-family: 'Raleway', sans-serif;   
 }
 
-.header {
+header {
     margin: 1%;
     display: flex;
     justify-content: space-around;
@@ -14,9 +14,14 @@ body {
     color: #7B2D31;
 }
 
+.menu-hamburguesa{
+    display: none;
+}
+
 .logo-header{
     display: flex;
     align-items: center;
+    /* hacer algo para que se vea mejor la separación entre logo y nombre */
 }
 
 .logo-header img{
@@ -24,9 +29,13 @@ body {
     width: 85px;
 }
 
+.nombre-pagina{
+    margin: auto 10px;
+}
+
 .botones-header{
     color:#7B2D31;
-    padding: 2px;
+    padding: 12px;
     font-size: medium;
 }
 
@@ -136,7 +145,7 @@ button{
     padding: 5%;
 }
 
-.footer {
+footer {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -296,4 +305,46 @@ input , textarea{
 .boton-enviar:hover {
     background-color: #EDD6C4;
     color: #7B2D31;
+}
+
+
+
+
+
+/* responsive de acá en adelante */
+/* Voy a poner media queries a la inversa para que cambie SOLO si es MENOR a 992px */
+
+@media only screen and (max-width: 992px){
+    
+    .menuDesplegado, .linea, .nombre-pagina{
+        display:none;
+    }
+    
+    .menuDesplegado.mostrar{
+        display: flex;
+        flex-direction: column;
+        /* ponerle posicion a la izquierda */
+    }
+
+    header{
+        justify-content: space-between;
+    }
+
+    .menu-hamburguesa{
+        display: flex;
+        object-fit: contain;
+        width: 60px;
+    }
+
+    .menu-footer {
+        justify-content: flex-start;
+    }
+
+    .menu-footer a{
+        margin: 5px;
+    }
+    
+    .logo-footer, .quienes-somos{
+        display: none;
+    }
 }
