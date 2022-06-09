@@ -346,4 +346,26 @@ input , textarea{
     .logo-footer, .quienes-somos{
         display: none;
     }
+
+    .contenedor-textos {
+        width: 40%;
+        max-width: 40%;
+        padding: 5px;
+    }
+ 
+    .contenedor-mision{
+        padding: 5px;
+    }
+
+    .contenedor-contacto{
+        padding: 10px;
+    }
+
+    .contenedor-requisitos{
+        padding: 15px;
+    }
+
+    textarea{
+        width: 200px;
+    }
 }
