@@ -14,6 +14,7 @@
 <body>
     <header>
         <img class="menu-hamburguesa" src="images/menu_hamburguesa.png" alt="es un menu hamburguesa del color del sitio">
+        
         <figcaption class="logo-header">
             <a href="index.html"><img src="images/logo_relleno.png" alt="es el logo del sitio, una patita de color roja que adentro tiene un gatito y un perrito"></a> 
             <p class="nombre-pagina"> Patitas Felices </p>
@@ -21,11 +22,14 @@
         <div class="linea">
 
         </div>
-        <nav class="menuDesplegado"> <!-- creo que esto debería ser una lista -->
-            <a class="menu-hamburguesa" href="index.html"> <button class="botones-header"> HOME </button> </a>
-            <a href="en-adopcion.html"> <button class="botones-header"> EN ADOPCIÓN </button> </a>
-            <a href="tienda.html"> <button class="botones-header"> TIENDA </button></a>
-            <a href="contacto.html"> <button class="botones-header"> CONTACTO </button> </a>
+        <nav class="menuDesplegado">
+            <ul class="botones-header-fila" >
+                <li> <a class="menu-hamburguesa" href="index.html"> </li>
+                <li> <button class="botones-header"> HOME </button> </a></li>
+                <li> <a href="en-adopcion.html"> <button class="botones-header"> EN ADOPCIÓN </button> </a></li>
+                <li> <a href="tienda.html"> <button class="botones-header"> TIENDA </button></a></li>
+                <li> <a href="contacto.html"> <button class="botones-header"> CONTACTO </button> </a></li>
+            </ul>
         </nav>
     </header>
 
@@ -120,39 +124,38 @@
     <section class="adopcion-titulo">
         <h2>¿Tenés un perrito para dar en adopción?</h2>
         <p>Si tenés un perrito para dar en adopción por favor ingrésalo a continuación!:</p>
-        <form  action="" id="">
-            <label for="nombre">Nombre de la persona de contacto para adoptar al perrito</label>
-            <input type="text" name="nombreTransito" value="" placeholder="escriba su nombre" required>
-            <label for="telefono">Teléfono de contacto</label>
-            <input type="text" name="telefono" id="" placeholder="ingrese un teléfono" required>
-            <label for="email">E-mail de contacto </label>
-            <input type="email" name="email" id="" placeholder="ingrese su email" required>
-            <label for="ciudad">Ciudad donde se encuentra</label>
-            <input type="text" name="ciudad" value="" placeholder="ingrese su ciudad" required>
-            
-            <label for="nombre">Nombre del perrito en adopción</label>
-            <input type="text" name="nombrePerrito" value="" placeholder="escriba el nombre del perrito" required>
-            <label for="edad">Edad del perrito en adopción</label>
-            <input type="text" name="edadPerrito" value="" placeholder="escriba la edad del perrito" required>
-            <label for="sexo"> Indique el sexo del perrito </label>
+        <form  id="js-formulario-adopciones-usuarios">
+            <label for="6-contacto">Nombre de la persona de contacto para adoptar al perrito</label>
+            <input type="text" name="6-contacto" value="" placeholder="escriba su nombre" required>
+            <label for="7-telefono">Teléfono de contacto</label>
+            <input type="text" name="7-telefono" id="" placeholder="ingrese un teléfono" required>
+            <label for="8-email">E-mail de contacto </label>
+            <input type="email" name="8-email" id="" placeholder="ingrese su email" required>
+            <label for="5-ciudad">Ciudad donde se encuentra</label>
+            <input type="text" name="5-ciudad" value="" placeholder="ingrese su ciudad" required>
+            <label for="0-perrito">Nombre del perrito en adopción</label>
+            <input type="text" name="0-perrito" value="" placeholder="escriba el nombre del perrito" required>
+            <label for="1-edad">Edad del perrito en adopción</label>
+            <input type="text" name="1-edad" value="" placeholder="escriba la edad del perrito" required>
+            <label for="2-sexo"> Indique el sexo del perrito </label>
             <div class="form-genero">
-                <input type="radio" name="genero" id="macho" required> Macho
-                <input type="radio" name="genero" id="hembra"> Hembra
+                <input type="radio" name="2-sexo" value="macho" required> Macho
+                <input type="radio" name="2-sexo" value="hembra"> Hembra
             </div>
-            <label for="castrado"> ¿Se encuentra castrado? </label>
+            <label for="4-castrado"> ¿Se encuentra castrado? </label>
             <div class="form-genero">
-                <input type="radio" name="castrado" id="sí" required> Sí
-                <input type="radio" name="castrado" id="no"> No
+                <input type="radio" name="4-castrado" value="si" required> Sí
+                <input type="radio" name="4-castrado" value="no"> No
             </div>
-            <label for="tamaño">Seleccione el rango más adecuado al tamaño del perro</label>
-            <select name="tamaño" id="" required>
+            <label for="3-tamaño">Seleccione el rango más adecuado al tamaño del perro</label>
+            <select name="3-tamaño" id="" required>
                 <option value="pequeño">Pequeño (Hasta 10/12 kg)</option>
                 <option value="mediano">Mediano (Hasta 20 kg))</option>
                 <option value="grande">Grande (Hasta 35 kg)</option>
                 <option value="gigante">Gigante (Más de 36 kg)</option>
             </select>
 
-            <div class="contenedor-captcha">
+            <!-- <div class="contenedor-captcha">
                 <div class="captcha-imagen">
                     <p id="js-imagen-captcha"></p>
                 </div>
@@ -161,33 +164,28 @@
                     <input type="text" id="js-input-captcha">
                     <p id="js-mensaje-captcha"></p>
                 </div>
-            </div>
+            </div> -->
+           
             <div>
                 <button class="boton-enviar"> ENVIAR </button>
             </div>
         </form>
         <h2>Listado de perritos disponibles por usuarios</h2>
-        <table>
-            <tr>
-                <th>NOMBRE</th>
-                <th>EDAD</th>
-                <th>SEXO</th>
-                <th>TAMAÑO</th>
-                <th>CASTRADO/A</th>
-                <th>CIUDAD</th>
-                <th>PERSONA DE CONTACTO</th>
-                <th>TELEFONO</th>
-                <th>MAIL</th>
-            </tr>
-        </table>
+        <div class="contenedor-tabla">
+            <table class="tabla-adopciones-usuarios" id="js-tabla-adopciones-usuarios">
+              
+            </table>
+            <button class="boton-enviar" id="js-agregar-perritos"> Agregar varios perritos </button>
+            <button class="boton-enviar" id="js-borrar-perritos"> Borrar todos los perritos</button>
+        </div>    
     </section>
 
     <footer>
-        <div class="menu-footer quienes-somos">
+        <section class="menu-footer quienes-somos">
             <h4>¿Quiénes somos?</h4>
             <p> Somos dos amigas de Tandil y Mar del Plata </p>
             <p> Que vieron una solución donde había un gran problema. </p>
-        </div>
+        </section>
         <nav class="menu-footer">
             <h4>MENÚ</h4>
             <a href="index.html">Home</a>
@@ -195,19 +193,18 @@
             <a href="tienda.html">Tienda</a>
             <a href="contacto.html">Contacto</a>
         </nav>
-        <div class="menu-footer">
+        <section class="menu-footer">
             <h4>NUESTRAS REDES</h4>
             <a href="https://www.facebook.com/Melisa.Burlando/" target="_blank">Facebook</a>
             <a href="https://www.instagram.com/nana.shunrey/" target="_blank">Instagram</a>
-        </div>
-        <div class="logo-footer">
+        </section>
+        <section class="menu-footer logo-footer">
             <img src="images/logo_color.png" alt="es el logo del sitio en color rojo">
             <p>Patitas Felices</p>
             <p>2022 - todos los derechos reservados</p>
-        </div>
+        </section>
     </footer>
     <script src="js/alternar-menu.js"></script>
-    <script src="js/contacto.js"></script>
-
+    <script src="js/tabla-dinamica.js"></script>
 </body>
 </html>

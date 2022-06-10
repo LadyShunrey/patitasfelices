@@ -1,6 +1,3 @@
-/* responsive de acá en adelante */
-/* Voy a poner media queries a la inversa para que cambie SOLO si es MENOR a 992px */
-
 body {
     background-color: #EDD6C4;
     font-family: 'Raleway', sans-serif;   
@@ -16,7 +13,7 @@ header {
     padding: 6px;
     color: #7B2D31;
     justify-content: space-between;
-    position: relative;
+    flex-wrap: wrap;
 }
 
 .menuDesplegado, .linea, .nombre-pagina{
@@ -26,8 +23,7 @@ header {
 .menuDesplegado.mostrar{
     display: flex;
     flex-direction: column;
-    /* ponerle posicion a la izquierda */
-    /* position: absolute; PONIENDOLE ESTO NO SE VE EL BOTON HOME*/
+    flex-basis: 100%;
 }
 
 .menu-hamburguesa{
@@ -39,7 +35,7 @@ header {
 .logo-header{
     display: flex;
     align-items: center;
-    /* hacer algo para que se vea mejor la separación entre logo y nombre */
+    /* próxima entrega hacer algo para que se vea mejor la separación entre logo y nombre */
 }
 
 .logo-header img{
@@ -62,7 +58,7 @@ header {
     margin: 2% auto;
     background: url(../images/perritohome.jpg) no-repeat;
     background-size: cover;
-    background-position: top left;
+    background-position: 35% -30px;
 }
 
 .contenedor-textos {
@@ -110,6 +106,7 @@ button{
     margin: auto;
     background: url(../images/tienda.jpg) no-repeat;
     background-size: cover;
+    background-position: 45% 0;
     justify-content: flex-start;
     width: 100%;
     height: 800px; /*ACOMODAR URGENTE*/
@@ -121,10 +118,12 @@ button{
     flex-direction: column;
     text-align: center;
     margin-left: 15%;
-    height: 70%;
     justify-content: flex-start;
-    background-color: rgba(237, 214, 196, 0.5);
-    padding-top: 15%;    
+    background-color: rgba(237, 214, 196, 0.5);   
+}
+
+.texto-tienda h2{
+    margin-top: 300px;
 }
 
 .contenedor-contacto{
@@ -180,6 +179,11 @@ a{
     justify-content: center;
 }
 
+.contenedor-imagen-adopcion img, .contenedor-imagen-contacto img{
+    max-width: 100%;
+    max-height: 100%;
+}
+
 .contenedor-requisitos{
     background-color: rgba(181, 144, 116, 0.3)
 }
@@ -210,6 +214,7 @@ li{
 
 .contenedor-tabla{
     margin-bottom: 5%;
+    overflow-x: auto;
 }
 
 table{
@@ -226,6 +231,23 @@ table tr td a{
 
 table tr td img{
     width: 200px;
+}
+
+.tabla-adopciones-usuarios{
+    margin: 20px;
+}
+
+.tabla-adopciones-usuarios tbody tr:nth-child(even){
+    background-color: #7B2D31;
+    color: #EDD6C4;
+}
+
+.tabla-adopciones-usuarios thead th{
+    text-transform: uppercase;
+}
+
+.tabla-adopciones-usuarios td.perrito-macho{
+    background-color:#7B2D31;
 }
 
 .contenedor-imagen-contacto{
@@ -294,6 +316,10 @@ textarea{
 
 @media only screen and (min-width: 992px){
 
+    header{
+        flex-wrap: nowrap;
+    }
+
     .menu-hamburguesa{
         display: none;
     }
@@ -328,6 +354,10 @@ textarea{
         margin-top: 2%;
     }
 
+    .contenedor-central .contenedor-tienda{
+        background-position: top left;
+    }
+
     .contenedor-textos {
         width: 20%;
     }
@@ -359,6 +389,10 @@ textarea{
 
     table tr td img:hover{
         width: 400px;
+    }
+
+    .tabla-adopciones-usuarios tbody tr:hover{
+        color: black;
     }
 
     .boton-enviar:hover {
