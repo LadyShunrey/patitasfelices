@@ -14,14 +14,15 @@
 <body>
     <header>
         <img class="menu-hamburguesa" src="images/menu_hamburguesa.png" alt="es un menu hamburguesa del color del sitio">
-        <div class="logo-header">
+        <figcaption class="logo-header">
             <a href="index.html"><img src="images/logo_relleno.png" alt="es el logo del sitio, una patita de color roja que adentro tiene un gatito y un perrito"></a> 
             <p class="nombre-pagina"> Patitas Felices </p>
-        </div>
+        </figcaption>
         <div class="linea">
 
         </div>
-        <nav class="menuDesplegado">
+        <nav class="menuDesplegado"> <!-- creo que esto debería ser una lista -->
+            <a class="menu-hamburguesa" href="index.html"> <button class="botones-header"> HOME </button> </a>
             <a href="en-adopcion.html"> <button class="botones-header"> EN ADOPCIÓN </button> </a>
             <a href="tienda.html"> <button class="botones-header"> TIENDA </button></a>
             <a href="contacto.html"> <button class="botones-header"> CONTACTO </button> </a>
@@ -34,12 +35,12 @@
         <img src="images/adopciones.jpg" alt="son 3 cachorritos">
     </figure>
 
-    <div class="adopcion-titulo">
+    <section class="adopcion-titulo">
         <p>Recuerden que todos los perritos publicados se encuentran DE VERDAD en adopción</p>
         <p>Cada perrito tiene el contacto de su respectivo rescatista o refugio por si algún profe o compañero realmente lo quiere adoptar :D</p>
-    </div>
+    </section>
     <h2 class="titulo-requisitos">REQUISITOS PARA ADOPTAR</h2>
-    <div class="contenedor-requisitos">
+    <section class="contenedor-requisitos">
         
         <p>Cada rescatista tiene sus propios requisitos según cada perro en particular. Pero acá te dejamos una lista de recomendaciones</p>
         <p>Adoptar es un acto de responsabilidad y compromiso por lo que es importante que estes capacitado para hacerlo. Un perro puede vivir entre 14 y 18 años y durante todo ese tiempo dependerá de vos.</p>
@@ -56,9 +57,9 @@
         </ul>
 
         <p>Si ya lo decidiste y te sentís capacitado es momento de comenzar con el proceso de adopción.</p>
-    </div>
+    </section>
 
-    <div class="contenedor-requisitos-generales">
+    <section class="contenedor-requisitos-generales">
         <h3>Los requisitos generales de casi todos los rescatistas y protectoras</h3>
         <ul>
             <li>Los animales se entregan luego de una charla telefónica orientada a corroborar que se cumplen con las normas básicas de tenencia responsable.</li>
@@ -68,13 +69,13 @@
             <li>Las adopciones se limitan geográficamente a Capital Federal y Gran Buenos Aires, Argentina (sujeto a consideración)</li>
             <li>Los datos suministrados por el solicitante son confidenciales y de acceso restringido, para el uso exclusivo de los procesos de adopción de la Asociación Civil Proyecto 4 Patas y no serán transferidos a terceros bajo ninguna circunstancia.</li>
         </ul>
-    </div>
+    </section>
 
-    <div class="contenedor-tabla">
-        <h2>Listado de perritos disponibles</h2>
+    <section class="contenedor-tabla">
+        <h2>Listado de perritos disponibles por rescatistas</h2>
         <table>
             <tr>
-                <th> </td>
+                <th> </th>
                 <th>NOMBRE</th>
                 <th>EDAD</th>
                 <th>SEXO</th>
@@ -114,7 +115,72 @@
                 <td><a href="https://www.instagram.com/danumdp/" target="_blank"> CONTACTO </a></td>
             </tr>
         </table>
-    </div>
+    </section>
+
+    <section class="adopcion-titulo">
+        <h2>¿Tenés un perrito para dar en adopción?</h2>
+        <p>Si tenés un perrito para dar en adopción por favor ingrésalo a continuación!:</p>
+        <form  action="" id="">
+            <label for="nombre">Nombre de la persona de contacto para adoptar al perrito</label>
+            <input type="text" name="nombreTransito" value="" placeholder="escriba su nombre" required>
+            <label for="telefono">Teléfono de contacto</label>
+            <input type="text" name="telefono" id="" placeholder="ingrese un teléfono" required>
+            <label for="email">E-mail de contacto </label>
+            <input type="email" name="email" id="" placeholder="ingrese su email" required>
+            <label for="ciudad">Ciudad donde se encuentra</label>
+            <input type="text" name="ciudad" value="" placeholder="ingrese su ciudad" required>
+            
+            <label for="nombre">Nombre del perrito en adopción</label>
+            <input type="text" name="nombrePerrito" value="" placeholder="escriba el nombre del perrito" required>
+            <label for="edad">Edad del perrito en adopción</label>
+            <input type="text" name="edadPerrito" value="" placeholder="escriba la edad del perrito" required>
+            <label for="sexo"> Indique el sexo del perrito </label>
+            <div class="form-genero">
+                <input type="radio" name="genero" id="macho" required> Macho
+                <input type="radio" name="genero" id="hembra"> Hembra
+            </div>
+            <label for="castrado"> ¿Se encuentra castrado? </label>
+            <div class="form-genero">
+                <input type="radio" name="castrado" id="sí" required> Sí
+                <input type="radio" name="castrado" id="no"> No
+            </div>
+            <label for="tamaño">Seleccione el rango más adecuado al tamaño del perro</label>
+            <select name="tamaño" id="" required>
+                <option value="pequeño">Pequeño (Hasta 10/12 kg)</option>
+                <option value="mediano">Mediano (Hasta 20 kg))</option>
+                <option value="grande">Grande (Hasta 35 kg)</option>
+                <option value="gigante">Gigante (Más de 36 kg)</option>
+            </select>
+
+            <div class="contenedor-captcha">
+                <div class="captcha-imagen">
+                    <p id="js-imagen-captcha"></p>
+                </div>
+                <div class="captcha-input">
+                    <p>Por favor ingrese aquí debajo los numéros y/o letras que salen en el recuadro</p>
+                    <input type="text" id="js-input-captcha">
+                    <p id="js-mensaje-captcha"></p>
+                </div>
+            </div>
+            <div>
+                <button class="boton-enviar"> ENVIAR </button>
+            </div>
+        </form>
+        <h2>Listado de perritos disponibles por usuarios</h2>
+        <table>
+            <tr>
+                <th>NOMBRE</th>
+                <th>EDAD</th>
+                <th>SEXO</th>
+                <th>TAMAÑO</th>
+                <th>CASTRADO/A</th>
+                <th>CIUDAD</th>
+                <th>PERSONA DE CONTACTO</th>
+                <th>TELEFONO</th>
+                <th>MAIL</th>
+            </tr>
+        </table>
+    </section>
 
     <footer>
         <div class="menu-footer quienes-somos">
@@ -141,5 +207,7 @@
         </div>
     </footer>
     <script src="js/alternar-menu.js"></script>
+    <script src="js/contacto.js"></script>
+
 </body>
 </html>

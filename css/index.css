@@ -1,10 +1,13 @@
+/* responsive de acá en adelante */
+/* Voy a poner media queries a la inversa para que cambie SOLO si es MENOR a 992px */
+
 body {
     background-color: #EDD6C4;
     font-family: 'Raleway', sans-serif;   
 }
 
 header {
-    margin: 1%;
+    margin: 1%; 
     display: flex;
     justify-content: space-around;
     font-weight: bold;
@@ -12,10 +15,23 @@ header {
     align-items: center;
     padding: 6px;
     color: #7B2D31;
+    justify-content: space-between;
+}
+
+.menuDesplegado, .linea, .nombre-pagina{
+    display:none;
+}
+
+.menuDesplegado.mostrar{
+    display: flex;
+    flex-direction: column;
+    /* ponerle posicion a la izquierda */
 }
 
 .menu-hamburguesa{
-    display: none;
+    display: flex;
+    object-fit: contain;
+    width: 60px;
 }
 
 .logo-header{
@@ -29,9 +45,9 @@ header {
     width: 85px;
 }
 
-.nombre-pagina{
+/* .nombre-pagina{
     margin: auto 10px;
-}
+} */
 
 .botones-header{
     color:#7B2D31;
@@ -310,62 +326,355 @@ input , textarea{
 
 
 
-/* responsive de acá en adelante */
-/* Voy a poner media queries a la inversa para que cambie SOLO si es MENOR a 992px */
 
-@media only screen and (max-width: 992px){
-    
-    .menuDesplegado, .linea, .nombre-pagina{
-        display:none;
-    }
-    
-    .menuDesplegado.mostrar{
-        display: flex;
-        flex-direction: column;
-        /* ponerle posicion a la izquierda */
-    }
 
-    header{
-        justify-content: space-between;
+
+
+
+
+
+
+
+.menu-footer {
+    justify-content: flex-start;
+}
+
+.menu-footer a{
+    margin: 5px;
+}
+
+.logo-footer, .quienes-somos{
+    display: none;
+}
+
+.contenedor-textos {
+    width: 40%;
+    max-width: 40%;
+    padding: 5px;
+}
+
+.contenedor-mision{
+    padding: 5px;
+}
+
+.contenedor-contacto{
+    padding: 10px;
+}
+
+.contenedor-requisitos{
+    padding: 15px;
+}
+
+textarea{
+    width: 200px;
+}
+
+
+@media only screen and (min-width: 992px){
+
+    header {
+        /* margin: 1%; */
+        /* display: flex; */
+        /* justify-content: space-around;
+        font-weight: bold;
+        background-color:rgba(181, 144, 116, 0.3);
+        align-items: center;
+        padding: 6px;
+        color: #7B2D31; */
     }
 
     .menu-hamburguesa{
-        display: flex;
-        object-fit: contain;
-        width: 60px;
-    }
-
-    .menu-footer {
-        justify-content: flex-start;
-    }
-
-    .menu-footer a{
-        margin: 5px;
-    }
-    
-    .logo-footer, .quienes-somos{
         display: none;
     }
 
-    .contenedor-textos {
-        width: 40%;
-        max-width: 40%;
-        padding: 5px;
-    }
- 
-    .contenedor-mision{
-        padding: 5px;
+    /* .logo-header{
+        display: flex;
+        align-items: center;
+        /* hacer algo para que se vea mejor la separación entre logo y nombre */
+    } */
+
+    /* .logo-header img{
+        object-fit: contain;
+        width: 85px;
+    } */
+
+    .nombre-pagina{
+        margin: auto 10px;
+        display: flex !important;
     }
 
-    .contenedor-contacto{
-        padding: 10px;
-    }
+    /* .botones-header{
+        color:#7B2D31;
+        padding: 12px;
+        font-size: medium;
+    } */
 
-    .contenedor-requisitos{
-        padding: 15px;
-    }
+    /* .botones-header:hover{
+        color: #EDD6C4;
+        background-color:#7B2D31;
+        border: 1px solid #7B2D31;
+        border-radius: 3px;
+    } */
 
-    textarea{
+    /* .linea{
+        width: 500px;
+        background-color:#7B2D31;
+        height: 1px;
+        margin-top: 2%;
+    } */
+
+    /* .contenedor-central {
+        display: flex;
+        position: relative;
+        width: 100%;
+        height: 800px;
+        justify-content: flex-end;
+        margin: 2% auto;
+        background: url(../images/perritohome.jpg) no-repeat;
+        background-size: cover;
+        background-position: top left;
+    } */
+
+    /* .contenedor-textos {
+        display: flex;
+        flex-direction: column;
+        margin-right: 15%;
+        width: 20%;
+        max-width: 30%;
+        max-height: 100%;
+        background-color: rgba(237, 214, 196, 0.7);
+        justify-content: center;
+        text-align: center;
+    } */
+
+    /* .titulo-rojo{
+        color: #7B2D31;
+        font-weight: bold;
+    } */
+
+    /* button{
+        font-family: 'Raleway', sans-serif;
+        font-weight: bold;
+        background-color: unset;
+        border: unset;
+    } */
+
+    /* .boton{
+        color: #EDD6C4;
+        background-color: #7B2D31;
+        border: groove #7B2D31 ;
+        border-radius: 4px;
+        padding: 2%;
+    } */
+
+    /* .boton:hover {
+        background-color: #EDD6C4;
+        color: #7B2D31;
+    } */
+
+    /* .contenedor-mision {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        background-color: #B59074;
+        margin: 5%;
+    } */
+
+    /* .contenedor-tienda{
+        display: flex;
+        margin: auto;
+        background: url(../images/tienda.jpg) no-repeat;
+        background-size: cover;
+        justify-content: flex-start;
+        width: 100%;
+        height: 800px;
+    } */
+
+    /* .texto-tienda{
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        margin-left: 15%;
+        height: 70%;
+        justify-content: flex-start;
+        background-color: rgba(237, 214, 196, 0.5);
+        padding-top: 15%;    
+    } */
+
+    /* .contenedor-contacto{
+        margin: 5%;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        background-color: #B59074;
+        align-items: center;
+        padding: 1%;
+    } */
+
+    /* .contenedor-contacto button{
+        padding: 5%;
+    } */
+
+    /* footer {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        background-color: white;
+    } */
+
+    /* .menu-footer{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+    } */
+
+    /* a{
+        text-decoration: none;
+        color:black;
+    } */
+
+    /* .logo-footer{
+        padding-top: 1%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    } */
+
+    /* .logo-footer img{
+        object-fit: contain;
+        width: 85px;
+    } */
+
+    /* .adopcion-titulo{
+        text-align: center;
+        background-color:rgba(181, 144, 116, 0.3);
+        margin: 5%;
+        padding: 3px;
+    } */
+
+    /* .contenedor-imagen-adopcion{
+        display: flex;
+        justify-content: center;
+    } */
+
+    /* .contenedor-requisitos{
+        background-color: rgba(181, 144, 116, 0.3)
+    } */
+
+    /* .titulo-requisitos{
+        text-align: center;
+        background-color: rgba(181, 144, 116, 0.3)
+    } */
+
+    /* ul{
+        text-align: start;
+    } */
+
+    /* li{
+        margin: 12px;
+    } */
+
+    /* .contenedor-requisitos-generales{
+        background-color: rgba(123, 45, 49, 0.95);
+        text-align: center;
+        margin: 5%;
+        padding: 3px;
+        font-weight: bold;
+        color: white;
+    } */
+
+    /* .contenedor-tabla{
+        margin-bottom: 5%;
+    } */
+
+    /* table{
+        text-align: center;
+        width: 100%;
+        border-collapse: collapse;
+        background-color: rgba(181, 144, 116, 0.3);
+    } */
+
+    /* table tr:hover td{
+        background-color: #EDD6C4;
+    } */
+
+    /* table tr td a{
+        text-decoration: underline;
+        color: darkblue;
+    } */
+
+    /* table tr td img{
         width: 200px;
-    }
+    } */
+
+    /* table tr td img:hover{
+        width: 400px;
+    } */
+
+    /* .contenedor-imagen-contacto{
+        display: flex;
+        justify-content: center; 
+    } */
+
+    /* form{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 3px;
+    } */
+
+    /* label{
+        padding-bottom: 4px;
+        padding-top: 15px;
+    } */
+
+    /* .form-genero{
+        display: block;
+    } */
+
+    /* input , textarea{
+        border-radius: 4px;
+    } */
+
+    /* .contenedor-captcha{
+        display: flex;
+        flex-direction: column;
+        margin: 1% auto; 
+        justify-content: center; 
+        align-items: center;   
+    } */
+
+    /* .captcha-imagen{
+        margin: 1%;
+        text-align: center;
+        font-weight: bold;
+        text-decoration: line-through;
+        border: 2px solid #7B2D31;
+        border-radius: 5px;
+        padding: 0px 12px;
+        background-color: white;
+        width: 100px;
+        font-size: 24px;
+    } */
+
+    /* .captcha-input{
+        justify-content: center;
+        align-items: center;
+    } */
+
+    /* .boton-enviar{
+        color: #EDD6C4;
+        background-color: #7B2D31;
+        border: groove #7B2D31 ;
+        border-radius: 4px;
+        padding: 15px;
+        margin: 5px;
+    } */
+
+    /* .boton-enviar:hover {
+        background-color: #EDD6C4;
+        color: #7B2D31;
+    } */
+
 }
