@@ -14,6 +14,7 @@
 <body>
     <header>
         <img class="menu-hamburguesa" src="images/menu_hamburguesa.png" alt="es un menu hamburguesa del color del sitio">
+        
         <figcaption class="logo-header">
             <a href="index.html"><img src="images/logo_relleno.png" alt="es el logo del sitio, una patita de color roja que adentro tiene un gatito y un perrito"></a> 
             <p class="nombre-pagina"> Patitas Felices </p>
@@ -22,10 +23,13 @@
 
         </div>
         <nav class="menuDesplegado"> <!-- creo que esto debería ser una lista -->
-            <a class="menu-hamburguesa" href="index.html"> <button class="botones-header"> HOME </button> </a>
-            <a href="en-adopcion.html"> <button class="botones-header"> EN ADOPCIÓN </button> </a>
-            <a href="tienda.html"> <button class="botones-header"> TIENDA </button></a>
-            <a href="contacto.html"> <button class="botones-header"> CONTACTO </button> </a>
+            <ul class="botones-header-fila" >
+                <li> <a class="menu-hamburguesa" href="index.html"> </li>
+                <li> <button class="botones-header"> HOME </button> </a></li>
+                <li> <a href="en-adopcion.html"> <button class="botones-header"> EN ADOPCIÓN </button> </a></li>
+                <li> <a href="tienda.html"> <button class="botones-header"> TIENDA </button></a></li>
+                <li> <a href="contacto.html"> <button class="botones-header"> CONTACTO </button> </a></li>
+            </ul>
         </nav>
     </header>
 

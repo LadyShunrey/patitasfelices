@@ -16,6 +16,7 @@ header {
     padding: 6px;
     color: #7B2D31;
     justify-content: space-between;
+    position: relative;
 }
 
 .menuDesplegado, .linea, .nombre-pagina{
@@ -26,6 +27,7 @@ header {
     display: flex;
     flex-direction: column;
     /* ponerle posicion a la izquierda */
+    /* position: absolute; PONIENDOLE ESTO NO SE VE EL BOTON HOME*/
 }
 
 .menu-hamburguesa{
@@ -194,6 +196,7 @@ ul{
 
 li{
     margin: 12px;
+    list-style: none;
 }
 
 .contenedor-requisitos-generales{
@@ -303,7 +306,11 @@ textarea{
     .menuDesplegado{
         display: flex;
         flex-direction: row !important; /*tuve que hardcodear porque se rompía*/
-        
+    }
+
+    .botones-header-fila{
+        display: flex;
+        flex-direction: row !important; /*tuve que hardcodear porque se rompía*/
     }
 
     .botones-header:hover{
