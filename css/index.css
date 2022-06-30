@@ -250,6 +250,11 @@ table tr td img{
     background-color:#7B2D31;
 }
 
+.botonera{
+    display: flex;
+    justify-content: center;
+}
+
 .contenedor-imagen-contacto{
     display: flex;
     justify-content: center; 

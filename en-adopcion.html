@@ -148,7 +148,7 @@
                 <input type="radio" name="4-castrado" value="no"> No
             </div>
             <label for="3-tamaño">Seleccione el rango más adecuado al tamaño del perro</label>
-            <select name="3-tamaño" id="" required>
+            <select name="3-tamano" id="" required>
                 <option value="pequeño">Pequeño (Hasta 10/12 kg)</option>
                 <option value="mediano">Mediano (Hasta 20 kg))</option>
                 <option value="grande">Grande (Hasta 35 kg)</option>
@@ -169,14 +169,18 @@
             <div>
                 <button class="boton-enviar"> ENVIAR </button>
             </div>
+            <p id="mensaje"> </p>
         </form>
         <h2>Listado de perritos disponibles por usuarios</h2>
         <div class="contenedor-tabla">
             <table class="tabla-adopciones-usuarios" id="js-tabla-adopciones-usuarios">
               
             </table>
-            <button class="boton-enviar" id="js-agregar-perritos"> Agregar varios perritos </button>
-            <button class="boton-enviar" id="js-borrar-perritos"> Borrar todos los perritos</button>
+            <div class="botonera">
+                <button class="boton-enviar" id="js-agregar-perritos"> Agregar varios perritos </button>
+                <button class="boton-enviar" id="js-borrar-perritos"> Borrar todos los perritos</button>
+                <p>Ingrese un ID de perrito para eliminarlo <input id="js-borrar-este-id" type="number"> <button class="boton-enviar" id="js-borrar-perrito-por-id"> Borrar el perrito</button></p>
+            </div>
         </div>    
     </section>
 
@@ -205,6 +209,7 @@
         </section>
     </footer>
     <script src="js/alternar-menu.js"></script>
-    <script src="js/tabla-dinamica.js"></script>
+    <!-- <script src="js/tabla-dinamica.js"></script> -->
+    <script src="js/nueva-tabla-dinamica.js"></script>
 </body>
 </html>
