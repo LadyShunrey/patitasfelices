@@ -5,6 +5,8 @@ const url = "https://62b613b242c6473c4b3f4601.mockapi.io/api/patitasfelices"
 window.addEventListener("load", llamarServicio);
 let tabla = document.querySelector("#js-tabla-adopciones-usuarios");
 
+let idDelJson = 0;
+
 async function llamarServicio() {
     console.log("Entre a la funcion");
     try {
@@ -19,6 +21,8 @@ async function llamarServicio() {
         tabla.innerHTML = `<th>PERRITO</th><th>EDAD</th><th>SEXO</th><th>TAMAÑO</th><th>CASTRADO</th><th>CIUDAD</th><th>CONTACTO</th><th>TELÉFONO</th><th>EMAIL</th><th>ID</th>`
         for (let numeroDeVuelta =0; numeroDeVuelta<sizeArreglo; numeroDeVuelta++){
             tabla.innerHTML += `<td>${json[numeroDeVuelta].perrito}</td><td>${json[numeroDeVuelta].edad}</td><td>${json[numeroDeVuelta].sexo}</td><td>${json[numeroDeVuelta].tamano}</td><td>${json[numeroDeVuelta].castrado}</td><td>${json[numeroDeVuelta].ciudad}</td><td>${json[numeroDeVuelta].contacto}</td><td>${json[numeroDeVuelta].telefono}</td><td>${json[numeroDeVuelta].email}</td><td>${json[numeroDeVuelta].id}</td>`;
+            idDelJson = json[numeroDeVuelta].id;
+            console.log("en esta vuelta el id es "+idDelJson)
         }
 
     } catch (error) {
@@ -75,14 +79,38 @@ async function agregarPerrito(event){
 
 document.querySelector("#js-borrar-perrito-por-id").addEventListener("click", borrarPerritoPorID);
 
-function borrarPerritoPorID(){
+async function borrarPerritoPorID(){
     let idParaBorrar = document.querySelector("#js-borrar-este-id").value;
     console.log(idParaBorrar);
+    idParaBorrar--;
+    console.log(idParaBorrar);
+    console.log(idDelJson);
 
-    //DELETE a ese ID "idParaBorrar"
+    //DELETE a ese ID "idParaBorrar" -1 (el -1 porque va desfazado por 1 el ID en relación al arreglo)
+
+    try{
+        let respuesta = await fetch(`${url}/${idParaBorrar}`, {
+            "method":"DELETE"
+        });
+        if(respuesta.status === 200){
+            document.querySelector("#mensaje").innerHTML = "Perrito de ID " + idParaBorrar + " eliminado correctamente!";
+        }
+    } catch(error){
+        console.log(error);
+    }
+    llamarServicio();
 }
 
 //agregar la función editar capaz con partial Render?
+
+document.querySelector("#js-modificar-perrito-por-id").addEventListener("click", modificarPerritoPorID)
+
+async function modificarPerritoPorID(){
+    let idParaModificar = document.querySelector("#js-modificar-este-id").value;
+    console.log(idParaModificar);
+
+    
+}
 
 
 
