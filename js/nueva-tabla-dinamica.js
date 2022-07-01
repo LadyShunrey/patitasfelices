@@ -21,13 +21,19 @@ async function llamarServicio() {
         console.log("El tamaño del arreglo es de " + sizeArreglo)
         tabla.innerHTML = `<th>PERRITO</th><th>EDAD</th><th>SEXO</th><th>TAMAÑO</th><th>CASTRADO</th><th>CIUDAD</th><th>CONTACTO</th><th>TELÉFONO</th><th>EMAIL</th><th>ID</th>`
         for (let numeroDeVuelta =0; numeroDeVuelta<sizeArreglo; numeroDeVuelta++){
+            //if castrado == true castrado = "Sí"
+            ////else (castrado == false) castrado = "No"
             tabla.innerHTML += `<td>${json[numeroDeVuelta].perrito}</td><td>${json[numeroDeVuelta].edad}</td><td>${json[numeroDeVuelta].sexo}</td><td>${json[numeroDeVuelta].tamano}</td><td>${json[numeroDeVuelta].castrado}</td><td>${json[numeroDeVuelta].ciudad}</td><td>${json[numeroDeVuelta].contacto}</td><td>${json[numeroDeVuelta].telefono}</td><td>${json[numeroDeVuelta].email}</td><td>${json[numeroDeVuelta].id}</td>`;
             idDelJson = json[numeroDeVuelta].id;
-            console.log("en esta vuelta el id es "+idDelJson)
+            console.log("en esta vuelta: "+ numeroDeVuelta +", el id es: "+idDelJson)
         }
     } catch (error) {
         console.log(error);
     }
+    
+    //if sexo==hembra hacer resaltado {
+    //  td.numeroDeVuelta.classList.add('resaltado')
+    //}
 }
 
 let form = document.querySelector("#js-formulario-adopciones-usuarios")
