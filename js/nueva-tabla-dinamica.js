@@ -1,12 +1,14 @@
 "use strict";
 
-const url = "https://62b613b242c6473c4b3f4601.mockapi.io/api/patitasfelices"
+const url = "https://62b613b242c6473c4b3f4601.mockapi.io/api/patitasfelices?page=4&limit=10"
 
 window.addEventListener("load", llamarServicio);
 let tabla = document.querySelector("#js-tabla-adopciones-usuarios");
 
 let idDelJson = 0;
 let sizeArreglo;
+
+//?page=1&limit=10
 
 async function llamarServicio() {
     console.log("Entre a la funcion");
@@ -72,7 +74,7 @@ async function agregarPerrito(event){
             "headers": {"Content-type": "application/json"},
             "body": JSON.stringify(perritoNuevo)
         })
-        if(respuesta.status === 201){
+        if(respuesta.status === 201){ //no olvidarme de poner todos los errores
             document.querySelector("#mensaje").innerHTML = "Perrito cargado correctamente!";
         }
     } catch (error) {
