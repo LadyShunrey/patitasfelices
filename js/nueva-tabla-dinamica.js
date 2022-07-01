@@ -6,6 +6,7 @@ window.addEventListener("load", llamarServicio);
 let tabla = document.querySelector("#js-tabla-adopciones-usuarios");
 
 let idDelJson = 0;
+let sizeArreglo;
 
 async function llamarServicio() {
     console.log("Entre a la funcion");
@@ -16,7 +17,7 @@ async function llamarServicio() {
         console.log(json);
         // crearCabeceras(tabla, json[0]);
         // crearContenido(tabla, json, true);
-        let sizeArreglo = json.length;
+        sizeArreglo = json.length;
         console.log("El tamaño del arreglo es de " + sizeArreglo)
         tabla.innerHTML = `<th>PERRITO</th><th>EDAD</th><th>SEXO</th><th>TAMAÑO</th><th>CASTRADO</th><th>CIUDAD</th><th>CONTACTO</th><th>TELÉFONO</th><th>EMAIL</th><th>ID</th>`
         for (let numeroDeVuelta =0; numeroDeVuelta<sizeArreglo; numeroDeVuelta++){
@@ -24,7 +25,6 @@ async function llamarServicio() {
             idDelJson = json[numeroDeVuelta].id;
             console.log("en esta vuelta el id es "+idDelJson)
         }
-
     } catch (error) {
         console.log(error);
     }
@@ -43,7 +43,7 @@ async function agregarPerrito(event){
     let tamano = formData.get('3-tamano');
     let castrado = formData.get('4-castrado');
     let ciudad = formData.get('5-ciudad');
-    let contacto = formData.get('6-ccontacto');
+    let contacto = formData.get('6-contacto');
     let telefono = formData.get('7-telefono');
     let email = formData.get('8-email');
 
@@ -82,10 +82,10 @@ document.querySelector("#js-borrar-perrito-por-id").addEventListener("click", bo
 async function borrarPerritoPorID(){
     let idParaBorrar = document.querySelector("#js-borrar-este-id").value;
     console.log(idParaBorrar);
-    idParaBorrar--;
     console.log(idParaBorrar);
     console.log(idDelJson);
 
+    
     //DELETE a ese ID "idParaBorrar" -1 (el -1 porque va desfazado por 1 el ID en relación al arreglo)
 
     try{
@@ -109,19 +109,45 @@ async function modificarPerritoPorID(){
     let idParaModificar = document.querySelector("#js-modificar-este-id").value;
     console.log(idParaModificar);
 
+    let formData = new FormData(form);
+    let perrito = formData.get('0-perrito');
+    let edad = formData.get('1-edad');
+    let sexo = formData.get('2-sexo');
+    let tamano = formData.get('3-tamano');
+    let castrado = formData.get('4-castrado');
+    let ciudad = formData.get('5-ciudad');
+    let contacto = formData.get('6-contacto');
+    let telefono = formData.get('7-telefono');
+    let email = formData.get('8-email');
+
+    let perritoNuevo = {
+        "perrito": perrito,
+        "edad": edad,
+        "sexo": sexo,
+        "tamano": tamano,
+        "castrado": castrado,
+        "ciudad": ciudad,
+        "contacto": contacto,
+        "telefono": telefono,
+        "email": email,
+    };
     
+    console.log("El size del arreglo para modificar es" + sizeArreglo);
+
+    try{
+        let respuesta = await fetch(`${url}/${idParaModificar}`, {
+            "method":"PUT",
+            "headers": {"Content-type": "application/json"},
+            "body": JSON.stringify(perritoNuevo)
+        });
+        if(respuesta.status === 200){
+            document.querySelector("#mensaje").innerHTML = "Perrito de ID " + idParaModificar + " modificado correctamente!";
+        }
+    } catch(error){
+        console.log(error);
+    }
+    llamarServicio();
 }
-
-
-
-
-
-
-
-
-
-
-
 
 
 
