@@ -255,6 +255,11 @@ table tr td img{
     justify-content: center;
 }
 
+.filtro{
+    display: none;
+    /* color: aqua; */
+}
+
 .contenedor-imagen-contacto{
     display: flex;
     justify-content: center; 
