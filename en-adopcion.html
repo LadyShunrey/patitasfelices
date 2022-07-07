@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="shortcut icon" href="images/logo_negro.png">
+    <link rel="shortcut icon" href="images/logo_relleno.png">
 </head>
 <body>
     <header>
@@ -172,9 +172,13 @@
             <p id="mensaje"> </p>
         </form>
         <h2>Listado de perritos disponibles por usuarios</h2>
+        <div class="mensaje-perritos-disponibles">
+
+        </div>
         <div class="contenedor-tabla">
             <p>Filtrar por: </p>
             <select name="filtros" id="filtros">
+                <option value="todos">Todos</option>
                 <option value="macho">Machos</option>
                 <option value="hembra">Hembras</option>
                 <option value="chico">Tamaño chico</option>
@@ -189,11 +193,12 @@
                 <button class="boton-enviar" id="js-siguiente">Siguiente</button>
             </div>
             <div class="botonera">
-                <button class="boton-enviar" id="js-agregar-perritos"> Agregar varios perritos </button>
-                <button class="boton-enviar"> Borrar todos los perritos</button>
-                <p>Ingrese un ID de perrito para eliminarlo <input id="js-borrar-este-id" type="number"> <button class="boton-enviar" id="js-borrar-perrito-por-id"> Borrar el perrito</button></p>
-                <p>Ingrese un ID de perrito para modificar <input id="js-modificar-este-id" type="text"> <button class="boton-enviar" id="js-modificar-perrito-por-id"> Modificar el perrito</button></p>
+                <button class="boton-enviar" id="js-agregar-perritos"> Agregar varios perritos</button>
+                <!-- <button class="boton-enviar"> Borrar todos los perritos</button> -->
+                <!-- <p>Ingrese un ID de perrito para eliminarlo <input id="js-borrar-este-id" type="number"> <button class="boton-enviar" id="js-borrar-perrito-por-id"> Borrar el perrito</button></p> -->
+                <!-- <p>Ingrese un ID de perrito para modificar <input id="js-modificar-este-id" type="text"> <button class="boton-enviar" id="js-modificar-perrito-por-id"> Modificar el perrito</button></p> -->
             </div>
+            <p id="mensaje-perrito-agregado"></p>
         </div>    
     </section>
 
@@ -221,6 +226,44 @@
             <p>2022 - todos los derechos reservados</p>
         </section>
     </footer>
+    <div class="paraEditar">
+        <p class="cerrar">CERRAR</p>
+        <form id="js-formulario-editar" class="form-edit">
+            <label for="6-contacto">Nombre de la persona de contacto para adoptar al perrito</label>
+            <input type="text" name="contacto-edit" value="" placeholder="escriba su nombre" required>
+            <label for="7-telefono">Teléfono de contacto</label>
+            <input type="text" name="telefono-edit" id="" placeholder="ingrese un teléfono" required>
+            <label for="8-email">E-mail de contacto </label>
+            <input type="email" name="email-edit" id="" placeholder="ingrese su email" required>
+            <label for="5-ciudad">Ciudad donde se encuentra</label>
+            <input type="text" name="ciudad-edit" value="" placeholder="ingrese su ciudad" required>
+            <label for="0-perrito">Nombre del perrito en adopción</label>
+            <input type="text" name="perrito-edit" value="" placeholder="escriba el nombre del perrito" required>
+            <label for="1-edad">Edad del perrito en adopción</label>
+            <input type="text" name="edad-edit" value="" placeholder="escriba la edad del perrito" required>
+            <label for="2-sexo"> Indique el sexo del perrito </label>
+            <div class="form-genero">
+                <input type="radio" name="sexo-edit" value="macho" required> Macho
+                <input type="radio" name="sexo-edit" value="hembra"> Hembra
+            </div>
+            <label for="4-castrado"> ¿Se encuentra castrado? </label>
+            <div class="form-genero">
+                <input type="radio" name="castrado-edit" value="si" required> Sí
+                <input type="radio" name="castrado-edit" value="no"> No
+            </div>
+            <label for="3-tamaño">Seleccione el rango más adecuado al tamaño del perro</label>
+            <select name="tamano-edit" id="" required>
+                <option value="chico">Pequeño (Hasta 10/12 kg)</option>
+                <option value="mediano">Mediano (Hasta 20 kg))</option>
+                <option value="grande">Grande (Hasta 35 kg)</option>
+                <option value="gigante">Gigante (Más de 36 kg)</option>
+            </select>
+            <div>
+                <button id="enviarEdicion" class="boton-enviar"> ENVIAR EDICIÓN </button>
+            </div>
+            <input type="hidden" id="js-id-editar-perrito">
+        </form>
+    </div>
     <script src="js/alternar-menu.js"></script>
     <!-- <script src="js/tabla-dinamica.js"></script> -->
     <script src="js/nueva-tabla-dinamica.js"></script>

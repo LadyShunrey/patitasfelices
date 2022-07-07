@@ -1,20 +1,25 @@
 "use strict"
 
+window.addEventListener("load", mostrarBanner);
+function mostrarBanner(){
+    document.querySelector("#contenido").classList.add('main-estilos');
+}
+
 function push(event){
     let id = event.target.id;
     select_tab(id);
     document.title = id;
     load_content(id);
-    window.history.pushState({ id }, `${id}`, `/page/${id}`);
+    window.history.pushState({ id }, `${id}`, `/patitasfelices/${id}`);
 }
 
 window.onload = (event) => {
     //agrego el history push() event cuando se hace click
-    // window["home"].addEventListener("click", (event) => push(event));
-    window["about"].addEventListener("click", (event) => push(event));
     window["adopciones"].addEventListener("click", (event) => push(event));
-    window["tienda"].addEventListener("click", (event) => push(event));
-    window["contacto"].addEventListener("click", (event) => push(event));
+    window["rescatistas"].addEventListener("click", (event) => push(event));
+    window["tienda-nav"].addEventListener("click", (event) => push(event));
+    window["contacto-nav"].addEventListener("click", (event) => push(event));
+    window["about"].addEventListener("click", (event) => push(event));
 };
 
 window.addEventListener("popstate", (event)=> {
@@ -26,6 +31,7 @@ window.addEventListener("popstate", (event)=> {
 });
 
 function select_tab(id){
+    
     document
         .querySelectorAll(".ruta")
         .forEach((item) => item.classList.remove("selected"));
@@ -36,6 +42,7 @@ function select_tab(id){
 }
 
 async function load_content(id){
+    document.querySelector("#contenido").classList.remove('main-estilos');
     console.log("Loading content for {" + id + "}");
     let contenedorDeContenido =  document.querySelector("#contenido");
     try {
@@ -45,14 +52,27 @@ async function load_content(id){
             contenedorDeContenido.innerHTML = content;    
         }
         else{
-            contenedorDeContenido.innerHTML = "Contenido cargando para /" + id+".....";
+            contenedorDeContenido.innerHTML = "Cargando contenido para /" + id+".....";
         }
     } catch (error){
         contenedorDeContenido.innerHTML = "Error";
     }
-}
-    
+}  
 
-//vamos a colorear cada botón
-//generar el partial render para cambiar el contenido
-// y con el history push agregar eso a la historia con el id del boton apretado
+
+//no logro hacer funcionar este pedacito de código, CONSULTAR.
+
+// function loadClick(event) {
+//     event.preventDefault();
+//     fetch("https://www.instagram.com/proyecto4patas/")
+//         .then(response => {
+//             console.log(response);
+//             console.log(response.status);
+//             response.text().then(text => {
+//                 document.querySelector("#use-ajax").innerHTML = text;
+//             });
+//          });
+// } 
+
+// let jsloads = document.querySelectorAll(".js-load");
+// jsloads.forEach(e=> e.addEventListener("click", loadClick));
