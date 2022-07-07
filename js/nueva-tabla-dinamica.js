@@ -7,27 +7,65 @@ let tabla = document.querySelector("#js-tabla-adopciones-usuarios");
 
 let idDelJson = 0;
 let sizeArreglo;
+console.log("el size del arreglo antes de tocar nada es de " + sizeArreglo);
+let numeroDePagina = 1;
+let mostrarPagina = document.querySelector("#js-pagina");
+mostrarPagina.innerHTML = "Página " + numeroDePagina;
 
 //?page=1&limit=10
+window.addEventListener("load", paginacion);
+async function paginacion(){
+    try{
+        let respuesta = await fetch (`${url}`);
+        console.log(respuesta);
+        let json = await respuesta.json();
+        console.log(json);
+        let sizeJson = json.length;
+        console.log("el size de toda la api es de " + sizeJson);
+        let cuantasPaginasMostrar = Math.ceil(sizeJson/10);
+        console.log("limite de paginas " + cuantasPaginasMostrar);
 
-let numeroDePágina = 1;
-document.querySelector("#js-siguiente").addEventListener("click", irALaSiguientePagina);
-function irALaSiguientePagina(){
-    numeroDePágina++;
-    llamarServicio();
-}
+        let botonSiguiente = document.querySelector("#js-siguiente");
+        botonSiguiente.addEventListener("click", irALaSiguientePagina);
+        function irALaSiguientePagina(){
+            if(numeroDePagina<cuantasPaginasMostrar){
+                numeroDePagina++;
+                mostrarPagina.innerHTML = "Página " + numeroDePagina;
+                llamarServicio();
+            }
+            if(numeroDePagina==cuantasPaginasMostrar){
+                //escondersiguiente
+                botonSiguiente.classList.add("esconder");
+            }
+            if(numeroDePagina>1){
+                botonAnterior.classList.remove("esconder");
+            }
+        }
 
-document.querySelector("#js-anterior").addEventListener("click", irALaAnteriorPagina);
-function irALaAnteriorPagina(){
-    numeroDePágina--;
-    llamarServicio();
-}
-
+        let botonAnterior = document.querySelector("#js-anterior");
+        botonAnterior.addEventListener("click", irALaAnteriorPagina);
+        function irALaAnteriorPagina(){
+            if(numeroDePagina>1){
+                numeroDePagina--;
+                mostrarPagina.innerHTML = "Página " + numeroDePagina;
+                llamarServicio();
+            }
+            if(numeroDePagina==1){
+                botonAnterior.classList.add("esconder");
+            }
+            if(numeroDePagina<cuantasPaginasMostrar){
+                botonSiguiente.classList.remove("esconder");
+            }
+        }
+    } catch(error){
+        console.log(error);
+    }
+}    
 
 async function llamarServicio() {
     console.log("Entre a la funcion");
     try {
-        let respuesta = await fetch(`${url}?page=${numeroDePágina}&limit=10`);
+        let respuesta = await fetch(`${url}?page=${numeroDePagina}&limit=10`);
         console.log(respuesta);
         let json = await respuesta.json();
         console.log(json);
@@ -39,17 +77,14 @@ async function llamarServicio() {
         for (let numeroDeVuelta =0; numeroDeVuelta<sizeArreglo; numeroDeVuelta++){
             //if castrado == true castrado = "Sí"
             ////else (castrado == false) castrado = "No"
-            tabla.innerHTML += `<td>${json[numeroDeVuelta].perrito}</td><td>${json[numeroDeVuelta].edad}</td><td>${json[numeroDeVuelta].sexo}</td><td>${json[numeroDeVuelta].tamano}</td><td>${json[numeroDeVuelta].castrado}</td><td>${json[numeroDeVuelta].ciudad}</td><td>${json[numeroDeVuelta].contacto}</td><td>${json[numeroDeVuelta].telefono}</td><td>${json[numeroDeVuelta].email}</td><td>${json[numeroDeVuelta].id}</td>`;
             idDelJson = json[numeroDeVuelta].id;
+            tabla.innerHTML += `<td>${json[numeroDeVuelta].perrito}</td><td>${json[numeroDeVuelta].edad}</td><td>${json[numeroDeVuelta].sexo}</td><td>${json[numeroDeVuelta].tamano}</td><td>${json[numeroDeVuelta].castrado}</td><td>${json[numeroDeVuelta].ciudad}</td><td>${json[numeroDeVuelta].contacto}</td><td>${json[numeroDeVuelta].telefono}</td><td>${json[numeroDeVuelta].email}</td><td>${json[numeroDeVuelta].id}</td><td><button>EDITAR</button></td><td><button class="js-borrar-perrito-por-id" data-id=${idDelJson}>ELIMINAR</button></td>`;
+            
             console.log("en esta vuelta: "+ numeroDeVuelta +", el id es: "+idDelJson);
         }
-    
-    
     } catch (error) {
         console.log(error);
     }
-    
-
     //if sexo==hembra hacer resaltado {
     //  td.numeroDeVuelta.classList.add('resaltado')
     //}
@@ -101,24 +136,29 @@ async function agregarPerrito(event){
     llamarServicio();
 
 }
+console.log("el id del json es " + idDelJson);
+document.querySelectorAll(".js-borrar-perrito-por-id").forEach((boton) =>{
+    boton.addEventListener("click", borrarPerrito);
+})
 
-document.querySelector("#js-borrar-perrito-por-id").addEventListener("click", borrarPerritoPorID);
-
-async function borrarPerritoPorID(){
-    let idParaBorrar = document.querySelector("#js-borrar-este-id").value;
+async function borrarPerrito(){
+    // let idParaBorrar = document.querySelector("#js-borrar-este-id").value;
+    console.log("entré a la función borrar");
+    
+    let deleteId = this.dataset.idDelJson;
+    console.log(dataset);
     console.log(idParaBorrar);
     console.log(idParaBorrar);
     console.log(idDelJson);
 
-    
     //DELETE a ese ID "idParaBorrar" -1 (el -1 porque va desfazado por 1 el ID en relación al arreglo)
 
     try{
-        let respuesta = await fetch(`${url}/${idParaBorrar}`, {
+        let respuesta = await fetch(`${url}/${deleteId}`, {
             "method":"DELETE"
         });
         if(respuesta.status === 200){
-            document.querySelector("#mensaje").innerHTML = "Perrito de ID " + idParaBorrar + " eliminado correctamente!";
+            document.querySelector("#mensaje").innerHTML = "Perrito de ID " + idDelJson + " eliminado correctamente!";
         }
     } catch(error){
         console.log(error);
@@ -231,8 +271,6 @@ async function agregarVariosPerritos(event){
 
 }
 
-
-
 let filtroElegido = document.querySelector("#filtros");
 filtroElegido.addEventListener("change", filtrar);
 function filtrar (){
@@ -247,69 +285,6 @@ function filtrar (){
         }
     }
 }
-
-
-
-
-
-
-
-
-// function crearCabeceras(tabla, perritos) {
-//     // creamos la cabeceras de la tabla e insertamos una fila
-//     let thead = tabla.createTHead();
-//     let row = thead.insertRow();
-//     // recorremos los atributos de cada perro
-//     for (let perrito in perritos) {
-//         // creamos una celda por cada key de los atributos
-//         let th = document.createElement("th");
-//         // seteamos el atributo a la celda correspondiente
-//         let text = document.createTextNode(perrito);
-//         th.appendChild(text);
-//         row.appendChild(th);
-//     }
-// }
-
-// function crearContenido(tabla, perritos, firstTime) {
-//     let tbody;
-//     if (firstTime) {
-//         tbody = tabla.createTBody();
-//     } else {
-//         tbody = tabla.getElementsByTagName("tbody")[0];
-//     }
-
-//     tbody;
-
-//     // recorremos el json
-//     for (let perrito of perritos) {
-//         // por cada objeto creamos una fila
-//         let row = tbody.insertRow();
-//         // recorremos los atributos de cada perro
-//         for (let key in perrito) {
-//             // creamos una celda por cada atributo
-//             let cell = row.insertCell();
-//             // seteamos el atributo a la celda correspondiente
-//             let text = document.createTextNode(perrito[key]);
-//             cell.appendChild(text);
-//         }
-//     }
-// }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

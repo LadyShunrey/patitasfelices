@@ -173,6 +173,7 @@
         </form>
         <h2>Listado de perritos disponibles por usuarios</h2>
         <div class="contenedor-tabla">
+            <p>Filtrar por: </p>
             <select name="filtros" id="filtros">
                 <option value="macho">Machos</option>
                 <option value="hembra">Hembras</option>
@@ -182,13 +183,14 @@
             <table class="tabla-adopciones-usuarios" id="js-tabla-adopciones-usuarios">
               
             </table>
-            <div>
+            <div class="botonera">
                 <button class="boton-enviar" id="js-anterior">Anterior</button>
+                <p id="js-pagina"> </p>
                 <button class="boton-enviar" id="js-siguiente">Siguiente</button>
             </div>
             <div class="botonera">
                 <button class="boton-enviar" id="js-agregar-perritos"> Agregar varios perritos </button>
-                <button class="boton-enviar" id="js-borrar-perritos"> Borrar todos los perritos</button>
+                <button class="boton-enviar"> Borrar todos los perritos</button>
                 <p>Ingrese un ID de perrito para eliminarlo <input id="js-borrar-este-id" type="number"> <button class="boton-enviar" id="js-borrar-perrito-por-id"> Borrar el perrito</button></p>
                 <p>Ingrese un ID de perrito para modificar <input id="js-modificar-este-id" type="text"> <button class="boton-enviar" id="js-modificar-perrito-por-id"> Modificar el perrito</button></p>
             </div>

@@ -49,6 +49,38 @@ header {
     font-size: medium;
 }
 
+.nav-y-main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.nav-central{
+    display: flex;
+    flex-direction: row;
+}
+
+.ruta{
+    border: 2px solid black;
+    margin: 16px;
+    background: #EDD6C4;
+    width: 150px;
+    height: 50px;
+}
+
+main#contenido{
+    border: 2px solid black;
+    background: #EDD6C4;
+    width: 1200px;
+    height: 300px;
+    justify-content: center;
+}
+
+.selected{
+    background-color: yellow;
+    color: aqua;
+}
+
 .contenedor-central {
     display: flex;
     position: relative;
@@ -248,6 +280,10 @@ table tr td img{
 
 .tabla-adopciones-usuarios td.perrito-macho{
     background-color:#7B2D31;
+}
+
+.esconder{
+    display: none;
 }
 
 .botonera{
