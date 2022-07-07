@@ -59,7 +59,9 @@ header {
 .nav-central{
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    max-width: 320;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .nav-central img{
@@ -71,10 +73,9 @@ header {
 
 .ruta{
     border: 2px solid #7B2D31;
-    margin: 16px;
+    margin: 2px;
     background: #EDD6C4;
-    width: 150px;
-    height: 50px;
+    height: 30px;
 }
 
 .main-estilos{
@@ -83,10 +84,9 @@ header {
 
 main#contenido{
     border: 2px solid black;
-    width: 1600px;
-    height: 550px;
     justify-content: center;
-    
+    width: 320px;
+    height: 400px;
 }
 
 .selected{
@@ -449,6 +449,36 @@ textarea{
         background-color:#7B2D31;
         height: 1px;
         margin-top: 2%;
+    }
+
+    .nav-central img{
+        width: 200px;
+        max-height: 200px;
+        margin: 15px;
+    }
+    
+    .ruta{
+        border: 2px solid #7B2D31;
+        margin: 16px;
+        background: #EDD6C4;
+        width: 150px;
+        height: 50px;
+    }
+
+    .ruta{
+        border: 2px solid #7B2D31;
+        margin: 16px;
+        background: #EDD6C4;
+        width: 150px;
+        height: 50px;
+    }
+    
+    main#contenido{
+        border: 2px solid black;
+        width: 1600px;
+        height: 550px;
+        justify-content: center;
+        
     }
 
     .contenedor-central .contenedor-tienda{
