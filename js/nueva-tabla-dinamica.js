@@ -12,7 +12,6 @@ let numeroDePagina = 1;
 let mostrarPagina = document.querySelector("#js-pagina");
 mostrarPagina.innerHTML = "Página " + numeroDePagina;
 
-//?page=1&limit=10
 window.addEventListener("load", paginacion);
 async function paginacion(){
     try{
@@ -74,9 +73,7 @@ async function llamarServicio() {
         let json = await respuesta.json();
         console.log(json);
         sizeArreglo = json.length;
-        console.log("El tamaño del arreglo es de " + sizeArreglo);
-        
-        
+        console.log("El tamaño del arreglo es de " + sizeArreglo);    
         tabla.innerHTML = `<th>PERRITO</th><th>EDAD</th><th>SEXO</th><th>TAMAÑO</th><th>CASTRADO</th><th>CIUDAD</th><th>CONTACTO</th><th>TELÉFONO</th><th>EMAIL</th><th>ID</th>`
 
         for (let numeroDeVuelta =0; numeroDeVuelta<sizeArreglo; numeroDeVuelta++){
@@ -155,7 +152,6 @@ async function borrarPerrito(){
     
     let deleteId = this.getAttribute("data-id");
     
-
     //DELETE a ese ID "idParaBorrar" -1 (el -1 porque va desfazado por 1 el ID en relación al arreglo)
 
     try{
@@ -205,7 +201,6 @@ async function editarTabla(event){
     let telefono = formData.get('telefono-edit');
     let email = formData.get('email-edit');
      
-
     let perritoNuevo = {
         "perrito": perrito,
         "edad": edad,
@@ -235,7 +230,6 @@ async function editarTabla(event){
     llamarServicio();
     editar.classList.remove('mostrar');
 }
-
 
 document.querySelector("#js-agregar-perritos").addEventListener("click", agregarVariosPerritos);
 

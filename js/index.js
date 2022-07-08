@@ -59,7 +59,6 @@ async function load_content(id){
     }
 }  
 
-
 //no logro hacer funcionar este pedacito de código, CONSULTAR.
 
 // function loadClick(event) {

@@ -1,16 +1,11 @@
 "use strict"
-
 //primero genero el captcha
-
 //declaro una variable donde va a quedar el captcha una vez generado
 let captcha;
-
 //declaro una variable con todas las letras que puede tener el captcha
 let letras = "AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz";
-
 //agrego un evento que inicie la función captcha al cargar la página
 window.addEventListener("load", generarCaptcha);
-
 //armo la funcion que genere el captcha
 function generarCaptcha(){
     //quiero que mi captcha tenga 6 numeros y letras, entonces hago 6 variables
@@ -21,7 +16,6 @@ function generarCaptcha(){
     let cuarto = letras[Math.floor(Math.random() * letras.length)];
     let quinto = letras[Math.floor(Math.random() * letras.length)];
     let sexto = Math.floor(Math.random() * 10);
-    
     //ahora le asigno a la variable captcha el valor de todas las demás variables combinadas
     captcha = primer.toString()+segundo.toString()+tercero.toString()+cuarto.toString()+quinto.toString()+sexto.toString();
     console.log('este es el captcha generado: ' + captcha);
@@ -31,7 +25,6 @@ function generarCaptcha(){
 }
 
 //ahora voy a comparar el captcha que generé con el input del usuario
-
 // declaro una variable para traer el form
 let formulario = document.querySelector('#js-formulario');
 

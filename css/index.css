@@ -79,7 +79,9 @@ header {
 }
 
 .main-estilos{
-    background: url(../images/banner.jpg);
+    background: url(../images/banner.jpg) no-repeat;
+    
+    object-fit: cover;
 }
 
 main#contenido{
@@ -473,6 +475,13 @@ textarea{
         height: 50px;
     }
     
+    .selected{
+        background-color:#7B2D31;
+        color:#EDD6C4;
+        border: black;
+        font-weight: bolder;
+    }
+
     main#contenido{
         border: 2px solid black;
         width: 1600px;
@@ -526,5 +535,4 @@ textarea{
         background-color: #EDD6C4;
         color: #7B2D31;
     }
-
 }
